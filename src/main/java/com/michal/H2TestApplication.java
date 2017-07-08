@@ -30,14 +30,18 @@ public class H2TestApplication {
 	public void saveUsers(){
 		User user = new User();
 		user.setName("Michal");
+		User user1 = new User();
+		user1.setName("Karol");
 
 		Address address = new Address();
 		address.setCity("Lublin");
 		addressRepo.save(address);
 		user.setAddress(new ArrayList<>(Arrays.asList(address)));
 		address.setUsers(new ArrayList<>(Arrays.asList(user)));
+		user1.setAddress(new ArrayList<>(Arrays.asList(address)));
 
 		userRepository.save(user);
+		userRepository.save(user1);
 		addressRepo.save(address);
 
 	}
